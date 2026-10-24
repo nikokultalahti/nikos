@@ -15,12 +15,14 @@ configurations:
       - page.tesk.Refine
       - com.mattjakeman.ExtensionManager
       - io.github.flattool.Ignition
+      - net.nokyan.Resources
+      - org.gnome.FileRoller
   - scope: user
     notify: false
     repo:
       title: Flathub (user)
     install:
-      - net.nokyan.Resources
+      -
       - com.tomjwatson.Emote
       - be.alexandervanhee.gradia
       - io.gitlab.adhami3310.Impression

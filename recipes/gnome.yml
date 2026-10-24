@@ -21,7 +21,7 @@ modules:
         - rygel
         - gnome-classic-session
         - gnome-system-monitor
-  # Install GNOME Flatpaks or their replacements that we want from Flathub (what Silverblue's installer preinstalls from Fedora's remote)
+  # Install GNOME Flatpaks that we want from Flathub (what Silverblue's installer preinstalls from Fedora's remote)
   # No GNOME Flatpak will be installed otherwise, as Fedora Flatpak remote is masked
   - type: default-flatpaks
     configurations:
