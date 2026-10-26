@@ -22,7 +22,6 @@ configurations:
     repo:
       title: Flathub (user)
     install:
-      -
       - com.tomjwatson.Emote
       - be.alexandervanhee.gradia
       - io.gitlab.adhami3310.Impression
