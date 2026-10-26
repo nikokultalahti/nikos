@@ -6,8 +6,6 @@ It is an image-based system. The OS is built in CI, installed or updated as a wh
 
 ## How NikOS differs from Silverblue
 
-Everything not listed here is stock Silverblue: kernel, GNOME, drivers, firmware, plymouth, Flatpak and the ostree/bootc update machinery.
-
 **Removed from the image**
 - GNOME Software, Help (Yelp), GNOME Tour, user docs, Parental Controls, remote desktop, file sharing (Rygel, user share), the GNOME Classic session and GNOME System Monitor.
 
@@ -18,6 +16,8 @@ Everything not listed here is stock Silverblue: kernel, GNOME, drivers, firmware
 - `distrobox`, `chezmoi`, and `libva-utils`.
 - udev rules for the ZSA Voyager keyboard, so Oryx and Keymapp can reach it (`files/system/usr/lib/udev/rules.d/50-zsa.rules`).
 - [Homebrew](https://brew.sh/), updating itself and its packages daily, with its analytics turned off.
+- JetBrainsMono Nerd Fonts
+- Polkit Policy for Bitwarden biometric authentication (`files/system/usr/share/polkit-1/actions/com.bitwarden.Bitwarden.policy`)
 
 **Apps from Flathub**
 - Fedora's Flatpak remote is not set up, so every Flatpak comes from Flathub. The image installs a default set on first boot; install anything else with Bazaar.
