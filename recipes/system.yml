@@ -7,7 +7,6 @@ modules:
       - source: system
         destination: /
 
-  # gdm, NetworkManager and Bluetooth are already enabled in Silverblue
   - type: systemd
     system:
       enabled:
@@ -25,3 +24,8 @@ modules:
       enabled:
         - podman.socket
         - flatpak-user-update.timer
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+      - JetBrainsMono
