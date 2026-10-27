@@ -17,6 +17,7 @@ configurations:
       - io.github.flattool.Ignition
       - net.nokyan.Resources
       - org.gnome.FileRoller
+      - io.github.maniacx.BudsLink
   - scope: user
     notify: false
     repo:

@@ -1,4 +1,4 @@
 # Enable the GNOME extensions installed in recipes/gnome.yml by default.
 # This sets a default only: a user's own enabled-extensions setting wins.
 [org.gnome.shell]
-enabled-extensions=['blur-my-shell@aunetx', 'appindicatorsupport@rgcjonas.gmail.com', 'nightthemeswitcher@romainvigier.fr', 'bluetooth-battery-monitor@v8v88v8v88.com', 'caffeine@patapon.info', 'gsconnect@andyholmes.github.io']
+enabled-extensions=['blur-my-shell@aunetx', 'appindicatorsupport@rgcjonas.gmail.com', 'nightthemeswitcher@romainvigier.fr', 'Bluetooth-Battery-Meter@maniacx.github.com', 'caffeine@patapon.info', 'gsconnect@andyholmes.github.io']

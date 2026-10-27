@@ -43,20 +43,20 @@ modules:
           - org.gnome.NautilusPreviewer
           - org.gnome.Papers
           - org.gnome.Showtime
-  # Install GNOME extensions
+  # Install GNOME extensions (https://extensions.gnome.org)
   - type: gnome-extensions
     install:
-      - Blur my Shell
-      - AppIndicator and KStatusNotifierItem Support
-      - Night Theme Switcher
-      - Bluetooth Battery Monitor
-      - Caffeine
+      - "3193" # Blur my Shell
+      - "615" # AppIndicator and KStatusNotifierItem Support
+      - "2236" # Night Theme Switcher
+      - "6670" # Bluetooth Battery Meter
+      - "517" # Caffeine
   # Uninstall default GNOME extensions that come with Silverblue
     uninstall:
-      - Apps Menu
-      - Background Logo
-      - Launch New Instance
-      - Places Status Indicator
+      - "6" # Apps Menu
+      - "7364" # Background Logo
+      - "600" # Launch New Instance
+      - "8" # Places Status Indicator
       - "602" # Window List; refer by ID as name alone also matches another extension
   # Enable all of the extensions (including GSConnect) by default
   - type: gschema-overrides
