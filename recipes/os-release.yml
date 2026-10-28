@@ -9,4 +9,6 @@ properties:
   NAME: NikOS
   PRETTY_NAME: NikOS (Fedora Silverblue)
   HOME_URL: https://github.com/nikokultalahti/nikos
+  DOCUMENTATION_URL: https://github.com/nikokultalahti/nikos
+  SUPPORT_URL: https://github.com/nikokultalahti/nikos/issues
   BUG_REPORT_URL: https://github.com/nikokultalahti/nikos/issues
