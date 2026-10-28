@@ -9,10 +9,8 @@ image-version: "44"
 # Order matters: modules run top to bottom, each as a cached layer.
 # Rarely changed pieces come first, frequently edited ones last.
 modules:
-  - from-file: repos.yml
   - from-file: gnome.yml
   - from-file: packages.yml
-  - from-file: codecs.yml
   - from-file: homebrew.yml
   - from-file: flatpaks.yml
   - from-file: system.yml
