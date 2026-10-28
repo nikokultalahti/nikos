@@ -8,3 +8,7 @@ modules:
         - chezmoi
         - nextcloud-client
         - nextcloud-client-nautilus
+    remove:
+      packages:
+        - firefox
+        - firefox-langpacks
