@@ -7,25 +7,25 @@ It is an image-based system. The OS is built in CI, installed or updated as a wh
 ## How NikOS differs from Silverblue
 
 **Removed from the image**
-- GNOME Software, Help (Yelp), GNOME Tour, user docs, Parental Controls, remote desktop, file sharing (Rygel, user share), the GNOME Classic session and GNOME System Monitor.
+- GNOME Software, Help (Yelp), GNOME Tour, user docs, Parental Controls, remote desktop, file sharing (Rygel, user share), the GNOME Classic session, GNOME System Monitor and the Firefox RPM (Firefox is installed as a Flatpak instead).
 
 **Added to the image**
-- RPM Fusion (free and nonfree) repositories.
-- Full-codec `ffmpeg` in place of `ffmpeg-free`, the `multimedia` group, and OpenH264 for Firefox.
-- AMD hardware video decoding (`mesa-va-drivers-freeworld`) when RPM Fusion has a build matching Fedora's Mesa; otherwise it is skipped until a later build. See `files/scripts/mesa-freeworld.sh`.
-- `distrobox`, `chezmoi`, and `libva-utils`.
+- `chezmoi` and the Nextcloud desktop client.
+- Visual Studio Code (official Microsoft build) with telemetry, feedback and automatic updates disabled (`files/system/etc/vscode/policy.json`); the Microsoft repo is enabled at build time only, so updates arrive with image rebuilds. `distrobox` is installed alongside it (`recipes/dev.yml`).
 - udev rules for the ZSA Voyager keyboard, so Oryx and Keymapp can reach it (`files/system/usr/lib/udev/rules.d/50-zsa.rules`).
 - [Homebrew](https://brew.sh/), updating itself and its packages daily, with its analytics turned off.
 - JetBrainsMono Nerd Fonts
 - Polkit Policy for Bitwarden biometric authentication (`files/system/usr/share/polkit-1/actions/com.bitwarden.Bitwarden.policy`)
 
+**Codecs are not installed on the host, by design.** Every app comes from Flathub as a Flatpak and has all its dependencies, including codecs, baked in. The image ships no RPM Fusion repositories, no `ffmpeg` and no `mesa-va-drivers-freeworld`.
+
 **Apps from Flathub**
 - Fedora's Flatpak remote is not set up, so every Flatpak comes from Flathub. The image installs a default set on first boot; install anything else with Bazaar.
-- **System-wide:** Bazaar (the app store), Firmware, Flatseal, Warehouse, Refine, Extension Manager and Ignition, plus the GNOME apps Silverblue's own installer would preinstall from Fedora's remote: Disk Usage Analyzer, Calculator, Calendar, Decibels, Contacts, Fonts, Text Editor, Image Viewer, Logs, Sushi (file previews), Papers and Showtime (video player).
-- **Per user:** Resources (system monitor), Emote, Gradia, Impression, Pika Backup, LibreOffice and Convey. These are installed in each user's home directory instead of system-wide.
+- **System-wide:** Bazaar (the app store), Firmware, Flatseal, Warehouse, Refine, Extension Manager, Ignition, Resources (system monitor), Archive Manager (FileRoller) and Firefox, plus the GNOME apps Silverblue's own installer would preinstall from Fedora's remote: Disk Usage Analyzer, Calculator, Calendar, Decibels, Contacts, Fonts, Text Editor, Image Viewer, Logs, Sushi (file previews), Papers and Showtime (video player).
+- **Per user:** BudsLink (companion app for the Bluetooth Battery Meter GNOME extension), Emote, Gradia, Impression, Pika Backup, LibreOffice and Convey. These are installed in each user's home directory instead of system-wide.
 
 **GNOME extensions**
-- Installed at build time: Blur my Shell, AppIndicator and KStatusNotifierItem Support, Night Theme Switcher, Bluetooth Battery Monitor, GSConnect and Caffeine.
+- Installed at build time: Blur my Shell, AppIndicator and KStatusNotifierItem Support, Night Theme Switcher, Bluetooth Battery Meter, GSConnect and Caffeine.
 - Removed: the extensions that ship with Silverblue's GNOME (Apps Menu, Background Logo, Launch New Instance, Places Status Indicator and Window List).
 
 **Updates**
@@ -38,7 +38,7 @@ It is an image-based system. The OS is built in CI, installed or updated as a wh
 - `/etc/os-release` says NikOS. `ID` is left as `fedora`.
 - Images are signed with cosign.
 
-The configuration is split by topic under `recipes/`: `repos`, `gnome`, `packages`, `codecs`, `homebrew`, `flatpaks`, `system` and `os-release`.
+The configuration is split by topic under `recipes/`: `gnome`, `packages`, `dev`, `homebrew`, `flatpaks`, `system` and `os-release`.
 
 ## Install
 
@@ -75,7 +75,6 @@ The `latest` tag points to the newest build. Builds always use the Fedora versio
 
 ## Notes
 
-- Firefox ships the OpenH264 plugin disabled. If you need/want it, enable it once in `about:addons` under Plugins.
 - The ZSA web configurator (Oryx) needs a Chromium-based browser. None is preinstalled, so install one (for example Chromium) from Bazaar. Firefox has no WebHID support.
 
 ## Verification
