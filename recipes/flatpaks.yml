@@ -18,12 +18,12 @@ configurations:
       - net.nokyan.Resources
       - org.gnome.FileRoller
       - org.mozilla.firefox
-      - io.github.maniacx.BudsLink
   - scope: user
     notify: false
     repo:
       title: Flathub (user)
     install:
+      - io.github.maniacx.BudsLink
       - com.tomjwatson.Emote
       - be.alexandervanhee.gradia
       - io.gitlab.adhami3310.Impression

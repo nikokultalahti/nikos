@@ -1,0 +1,19 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  # --- VS Code (official Microsoft build) --------------------------------
+  # Native host integration with none of the Flatpak sandbox friction. The
+  # Microsoft repo is used only at build time and removed again afterwards, so
+  # it is not left enabled in the image; updates arrive with image rebuilds.
+  # Telemetry and background updates are disabled via /etc/vscode/policy.json.
+  - type: dnf
+    repos:
+      cleanup: true
+      files:
+        - microsoft-vscode.repo
+      keys:
+        - https://packages.microsoft.com/keys/microsoft.asc
+    install:
+      packages:
+        - code
+        - distrobox
