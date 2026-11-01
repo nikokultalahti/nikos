@@ -13,7 +13,7 @@ It is an image-based system. The OS is built in CI, installed or updated as a wh
 - `chezmoi` and the Nextcloud desktop client.
 - Visual Studio Code (official Microsoft build) with telemetry, feedback and automatic updates disabled (`files/system/etc/vscode/policy.json`); the Microsoft repo is enabled at build time only, so updates arrive with image rebuilds. `distrobox` is installed alongside it (`recipes/dev.yml`).
 - udev rules for the ZSA Voyager keyboard, so Oryx and Keymapp can reach it (`files/system/usr/lib/udev/rules.d/50-zsa.rules`).
-- [Homebrew](https://brew.sh/), updating itself and its packages daily, with its analytics turned off.
+- [Mise](https://mise.jdx.dev)) for installing CLI tools and runtimes, and optionally serving as a task runner, bootstrapping mechanism and dotfiles manager
 - JetBrainsMono Nerd Fonts
 - Polkit Policy for Bitwarden biometric authentication (`files/system/usr/share/polkit-1/actions/com.bitwarden.Bitwarden.policy`)
 
@@ -31,14 +31,14 @@ It is an image-based system. The OS is built in CI, installed or updated as a wh
 **Updates**
 - Silverblue updates manually by default. NikOS runs `bootc upgrade` daily (`bootc-update.timer`); it downloads and stages the new image, and it takes effect on the next reboot.
 - Flatpaks update daily too, with a system timer (`flatpak-system-update.timer`) and a per-user timer (`flatpak-user-update.timer`). GNOME Software, which normally does this, is removed.
-- Homebrew updates itself and upgrades its packages daily.
+- Mise gets updated automatically via bootc upgrades; automatic updates for the tools managed via Mise can be set in Mise's configuration file
 
 **Smaller changes**
 - `systemd-remount-fs.service` is masked. It fails on every boot on composefs roots, which is a known upstream issue.
 - `/etc/os-release` says NikOS. `ID` is left as `fedora`.
 - Images are signed with cosign.
 
-The configuration is split by topic under `recipes/`: `gnome`, `packages`, `dev`, `homebrew`, `flatpaks`, `system` and `os-release`.
+The configuration is split by topic under `recipes/`: `gnome`, `packages`, `dev`, `flatpaks`, `system` and `os-release`.
 
 ## Install
 
