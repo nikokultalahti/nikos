@@ -9,11 +9,14 @@ modules:
   - type: dnf
     repos:
       cleanup: true
+      copr:
+        - jdxcode/mise
       files:
         - microsoft-vscode.repo
       keys:
         - https://packages.microsoft.com/keys/microsoft.asc
     install:
       packages:
+        - mise
         - code
         - distrobox

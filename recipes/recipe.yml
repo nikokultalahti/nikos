@@ -12,7 +12,6 @@ modules:
   - from-file: gnome.yml
   - from-file: packages.yml
   - from-file: dev.yml
-  - from-file: homebrew.yml
   - from-file: flatpaks.yml
   - from-file: system.yml
   - from-file: os-release.yml
