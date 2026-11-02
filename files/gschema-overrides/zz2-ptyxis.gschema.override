@@ -1,0 +1,3 @@
+[org.gnome.Ptyxis.Profile]
+use-custom-command=true
+custom-command='/usr/bin/sh -c "[ -x /usr/bin/zsh ] && exec /usr/bin/zsh || exec /usr/bin/bash"'
