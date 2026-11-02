@@ -1,0 +1,9 @@
+# Logitech Litra Glow / Beam / Beam LX, for litra and litra-autotoggle.
+# Based on the rules in https://github.com/timrogers/litra-rs (99-litra.rules).
+# Differs from upstream in one way: TAG+="uaccess" (access for the user logged
+# in at the seat) instead of GROUP="video", so no group membership or manual
+# usermod is needed. Same approach as 50-zsa.rules.
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c900", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c901", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="b901", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c903", TAG+="uaccess"

@@ -13,7 +13,8 @@ It is an image-based system. The OS is built in CI, installed or updated as a wh
 - `chezmoi` and the Nextcloud desktop client.
 - Visual Studio Code (official Microsoft build) with telemetry, feedback and automatic updates disabled (`files/system/etc/vscode/policy.json`); the Microsoft repo is enabled at build time only, so updates arrive with image rebuilds. `distrobox` is installed alongside it (`recipes/dev.yml`).
 - udev rules for the ZSA Voyager keyboard, so Oryx and Keymapp can reach it (`files/system/usr/lib/udev/rules.d/50-zsa.rules`).
-- [Mise](https://mise.jdx.dev)) for installing CLI tools and runtimes, and optionally serving as a task runner, bootstrapping mechanism and dotfiles manager
+- udev rules for the Logitech Litra lights (Glow, Beam, Beam LX), so `litra` and `litra-autotoggle` work without root or a group (`files/system/usr/lib/udev/rules.d/99-litra.rules`).
+- [Mise](https://mise.jdx.dev) for installing CLI tools and runtimes, and optionally serving as a task runner, bootstrapping mechanism and dotfiles manager
 - JetBrainsMono Nerd Fonts
 - Polkit Policy for Bitwarden biometric authentication (`files/system/usr/share/polkit-1/actions/com.bitwarden.Bitwarden.policy`)
 
