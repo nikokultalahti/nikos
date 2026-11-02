@@ -62,3 +62,4 @@ modules:
   - type: gschema-overrides
     include:
       - zz1-extensions.gschema.override
+      - zz2-ptyxis.gschema.override
