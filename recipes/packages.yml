@@ -7,6 +7,9 @@ modules:
         - chezmoi
         - nextcloud-client
         - nextcloud-client-nautilus
+        - zsh
+        - zsh-autosuggestions
+        - zsh-syntax-highlighting
     remove:
       packages:
         - firefox
